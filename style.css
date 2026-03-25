@@ -1,0 +1,728 @@
+/* ==========================================================================
+   01. VARIABLES GLOBALES Y RESET
+   ========================================================================== */
+
+:root {
+    --primary-dark: #2A2C5D;
+    --primary-light: #4A4E9C;
+    --bg-light: #F8F8FF;
+    --bg-purple-light: #EBEBFA;
+    --highlight: #D6D6F5;
+    --text-dark: #1A1A3A;
+    --text-gray: #4A4A6A;
+    --white: #FFFFFF;
+    --card-shadow: 0 10px 30px rgba(42, 44, 93, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-image: radial-gradient(circle at 10% 20%, rgba(235, 235, 250, 0.8) 0%, transparent 20%),
+                      radial-gradient(circle at 90% 80%, rgba(235, 235, 250, 0.8) 0%, transparent 20%);
+}
+
+/* ==========================================================================
+   02. HEADER Y NAVEGACIÓN
+   ========================================================================== */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: transparent;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    line-height: 1.1;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-dark);
+    border-bottom: 2px solid var(--primary-dark);
+    padding-bottom: 2px;
+}
+
+/* --- Botones --- */
+.btn-primary {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 10px 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-light);
+}
+
+
+/* ==========================================================================
+   03. SECCIÓN HERO (Principal)
+   ========================================================================== */
+
+.hero {
+    display: flex;
+    padding: 40px 5%;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.highlight-text {
+    color: var(--primary-light);
+    position: relative;
+    display: inline-block;
+}
+
+.highlight-text::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    bottom: 4px;
+    left: 0;
+    background-color: var(--highlight);
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.hero-desc {
+    font-size: 16px;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+    max-width: 90%;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-dark);
+    border: 1px solid var(--primary-dark);
+    padding: 10px 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-purple-light);
+}
+
+/* --- Badges / Etiquetas --- */
+.badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.badge {
+    background-color: var(--white);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: var(--text-gray);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.badge i {
+    color: #00BFFF;
+}
+
+/* --- Imagen del Hero --- */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.image-placeholder {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    background: linear-gradient(135deg, #EBEBFA, #D6D6F5);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-light);
+    font-weight: 500;
+    border: 2px dashed var(--primary-light);
+}
+
+/* ==========================================================================
+   04. CONFIGURACIÓN GENERAL DE SECCIONES Y COMPONENTES
+   ========================================================================== */
+
+section {
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+.section-title .highlight-text {
+    color: var(--text-dark);
+}
+
+/* --- Grid de Tarjetas --- */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: var(--white);
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--bg-purple-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--primary-light);
+    font-size: 24px;
+}
+
+.card p {
+    font-size: 15px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* --- Callout Pill (Etiqueta resaltada) --- */
+.callout {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--bg-purple-light);
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-top: 20px;
+}
+
+
+/* ==========================================================================
+   SECCIÓN GUÍA PRÁCTICA (SPLIT LAYOUT)
+   ========================================================================== */
+
+.guide-split-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px; /* Espacio entre el logo y el contenido */
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Columna del Logo --- */
+.guide-left-column {
+    flex: 0 0 40%; /* Ocupa el 40% del ancho */
+    display: flex;
+    justify-content: center;
+}
+
+.guide-logo {
+    width: 100%;
+    max-width: 320px; /* Tamaño máximo del logo */
+    height: auto;
+}
+
+/* --- Columna del Contenido --- */
+.guide-right-column {
+    flex: 0 0 60%; /* Ocupa el 60% del ancho */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todos los elementos horizontalmente */
+    text-align: center; /* Centra los textos */
+}
+
+.guide-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.guide-title .highlight-text {
+    color: var(--primary-dark);
+    position: relative;
+    display: inline-block;
+}
+
+.guide-title .highlight-text::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    bottom: 4px;
+    left: 0;
+    background-color: var(--highlight);
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.guide-description {
+    font-size: 16px;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+    max-width: 550px; /* Evita que el texto sea muy largo de leer */
+    line-height: 1.6;
+}
+
+.guide-description strong {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+/* --- Contenedor de Tarjetas --- */
+.guide-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center; /* Centra las tarjetas dentro de su columna */
+}
+
+.guide-item-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--white);
+    padding: 15px 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px; /* Define qué tan anchas queremos las tarjetas */
+    box-shadow: var(--card-shadow);
+    text-align: left; /* Mantiene el texto alineado a la izquierda dentro de la tarjeta */
+    transition: transform 0.3s;
+}
+
+.guide-item-card:hover {
+    transform: translateY(-3px);
+}
+
+.guide-item-card .icon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--bg-purple-light);
+    color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0; /* Evita que el círculo se achique */
+}
+
+.guide-item-card p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.4;
+}
+
+.guide-item-card p strong {
+    color: var(--text-dark);
+}
+
+/* --- Responsive (Celulares) --- */
+@media (max-width: 900px) {
+    .guide-split-section {
+        flex-direction: column;
+        gap: 40px;
+        padding: 60px 5%;
+    }
+    
+    .guide-left-column, 
+    .guide-right-column {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+    
+    .guide-logo {
+        max-width: 250px; /* Achica un poco el logo en móviles */
+    }
+}
+
+/* --- Botones y Badges de la Guía Práctica --- */
+.guide-actions-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    width: 100%;
+    flex-wrap: wrap; /* Para que bajen en pantallas chicas */
+}
+
+/* Botón oscuro */
+.btn-download-dark {
+    background-color: #12143A; /* Un azul noche bien oscuro calcado de tu imagen */
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 20px rgba(18, 20, 58, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-download-dark:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(18, 20, 58, 0.25);
+    background-color: #1a1d52;
+}
+
+/* Píldora de características (Badge) */
+.guide-feature-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 40px;
+    border: 1.5px solid var(--highlight); /* Borde lila clarito */
+    background-color: transparent;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.guide-feature-badge i {
+    color: #38A3A5; /* Verde esmeralda calcado de tu imagen */
+    font-size: 18px;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    .guide-actions-wrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn-download-dark, 
+    .guide-feature-badge {
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* ==========================================================================
+   05. BANNER DE ILUSTRACIÓN
+   ========================================================================== */
+
+.banner-section {
+    padding: 20px 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-illustration {
+    width: 100%;
+    max-width: 1000px;
+    height: 400px; /* Altura de prueba */
+    background: linear-gradient(135deg, #EBEBFA, #D6D6F5);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-light);
+    font-weight: 500;
+    border: 2px dashed var(--primary-light);
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   06. CALL TO ACTION (CTA)
+   ========================================================================== */
+
+.cta-section {
+    padding: 60px 5% 80px;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.cta-section h2 strong {
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.cta-section p {
+    font-size: 18px;
+    color: var(--text-gray);
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-large {
+    background: linear-gradient(90deg, #3A408C, #5A60C2);
+    color: var(--white);
+    padding: 16px 40px;
+    border-radius: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 20px rgba(58, 64, 140, 0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+}
+
+.btn-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(58, 64, 140, 0.35);
+}
+
+.btn-outline-light {
+    background-color: var(--bg-purple-light);
+    color: var(--text-gray);
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 25px;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+.btn-outline-light:hover {
+    background-color: #dcdcf2;
+}
+
+.btn-outline-light strong {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   07. FOOTER
+   ========================================================================== */
+
+footer {
+    background-color: var(--bg-purple-light);
+    padding: 40px 5% 30px;
+    color: var(--text-gray);
+}
+
+footer img{
+    width: 100px;
+    height:100px
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.footer-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-nav strong {
+    color: var(--text-dark);
+    font-size: 16px;
+}
+
+.footer-nav .separator {
+    color: #ccc;
+}
+
+.footer-nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: var(--primary-light);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: var(--primary-light);
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--primary-dark);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.footer-info p {
+    margin: 2px 0;
+}
+
+.footer-info strong {
+    color: var(--text-dark);
+}
+
+.footer-legal a {
+    color: var(--text-gray);
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.footer-legal a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   08. MEDIA QUERIES (RESPONSIVE)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    /* Ajustes del Hero */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-desc {
+        margin: 0 auto 30px auto;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .badges {
+        justify-content: center;
+    }
+    
+    /* Ocultar navegación en móviles (requeriría menú hamburguesa) */
+    nav {
+        display: none; 
+    }
+
+    /* Ajustes del Footer */
+    .footer-top, 
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}
