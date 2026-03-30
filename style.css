@@ -32,10 +32,6 @@ body {
 /* ==========================================================================
    02. HEADER Y NAVEGACIÓN
    ========================================================================== */
-
-/* ==========================================================================
-   02. HEADER Y NAVEGACIÓN
-   ========================================================================== */
 header {
     display: flex;
     justify-content: space-between;
@@ -43,39 +39,14 @@ header {
     padding: 20px 5%;
     background-color: transparent;
     /* Inicialmente transparente */
-
     /* --- NUEVO PARA HACERLO FIJO --- */
     position: sticky;
     top: 0;
     z-index: 1000;
     /* Asegura que esté sobre todo el contenido */
-
     /* --- NUEVO TRANSICIÓN SUAVE --- */
     transition: all 0.3s ease;
     /* Suaviza el cambio de color y padding */
-}
-
-/* ========================================= */
-/* --- HEADER (Navegación Fija) --- */
-/* ========================================= */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    background-color: transparent;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-/* Clase activada por JS al scrollear */
-header.header-sticky {
-    background-color: var(--primary-light);
-    /* Fondo Azul Violeta */
-    padding: 10px 5%;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* ========================================= */
