@@ -202,7 +202,7 @@ header.header-sticky .btn-primary:hover {
     justify-content: flex-start;
     align-items: center;
     gap: 40px;
-    background-image: url(./img/banner-simple-IA.png);
+    background-image: url(./banner-simple-IA.png);
     background-position: right bottom; /* Ancla la imagen a la derecha y abajo para mostrar la ilustración */
     background-repeat: no-repeat;
     background-size: cover;
